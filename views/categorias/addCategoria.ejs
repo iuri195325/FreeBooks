@@ -1,0 +1,16 @@
+<%- include('../partials/header.ejs'); %>
+<body>
+    <div class="header"> 
+    </div>
+    <%- include('../partials/navbar.ejs'); %>
+    <div class="titulo">
+        <h1  class="h1-b" style="color: #17202A;">Adicionar Nova Categoria</h1>
+    </div>
+    <br><br><br>
+
+    <form method="POST" action="/category/new/add">
+        <label for="">Nome da Categoria</label>
+        <input type="text" name="title" class="form-control" style="width: 50%;">
+        <br>
+        <button class="btn btn-secondary">Adicionar</button>
+    </form>

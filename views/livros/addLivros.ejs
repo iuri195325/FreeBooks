@@ -1,0 +1,30 @@
+<%- include('../partials/header.ejs'); %>
+<body>
+    <div class="header"> 
+    </div>
+    <%- include('../partials/navbar.ejs'); %>
+    <div class="titulo">
+        <h1  class="h1-b" style="color: #17202A;">Adicionar Novo livro</h1>
+    </div>
+    <br><br><br>
+
+    <form method="POST" action="/livros/new/add">
+        <label for="">Nome do livro</label>
+        <input type="text" name="titulo" class="form-control" style="width: 50%;">
+        <br>
+        <label for="">Nome da descrição</label>
+        <input type="text" name="descri" class="form-control" style="width: 50%;">
+        <label for="">Valor do livro</label>
+        <input type="text" name="valor" class="form-control" style="width: 50%;">
+        <label for="">autor do livro</label>
+        <input type="text" name="autor" class="form-control" style="width: 50%;">
+        <label for="">img</label>
+        <input type="text" name="img" class="form-control" style="width: 50%;">
+        <br>
+        <select  class="form-control" name="category">
+            <% category.forEach((category)=>{ %>
+                <option value="<%= category.id %>"><%= category.title %></option>
+            <% }) %>
+        </select>
+        <button class="btn btn-secondary">Adicionar</button>
+    </form>

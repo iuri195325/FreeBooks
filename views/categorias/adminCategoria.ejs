@@ -1,0 +1,28 @@
+<%- include('../partials/header.ejs'); %>
+<body>
+    <div class="header"> 
+    </div>
+    <%- include('../partials/navbar.ejs'); %>
+    <div class="titulo">
+        <h1  class="h1-b" style="color: #17202A;">Adiministrar Categorias</h1>
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>ações</th>
+        </tr>
+        <% category.forEach(category =>{ %>
+            <tr>    
+                <th><%= category.id %></th>
+                <th><%= category.title %></th>
+                <th> 
+                    <a class="btn btn-warning" href="/admin/edit/<%= category.id %>">Editar</a> 
+                    <form method="POST" action="/admin/category/delete" style="display: inline">
+                        <input type="hidden" name="id" value="<%= category.id %>">
+                        <button class="btn btn-danger">Excluir</button>          
+                    </form>    
+                </th>
+            </tr>
+        <% }) %>
+    </table>

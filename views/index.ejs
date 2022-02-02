@@ -1,0 +1,56 @@
+<%- include('./partials/header.ejs'); %>
+<body>
+  <div class="header"> 
+  </div>
+  <%- include('./partials/navbar.ejs'); %>
+  <div class="titulo">
+    <h1  class="h1-b" style="color: #17202A;">Bem Vindo</h1>
+  </div>  
+  <h6 style="margin-left: 1%;">MAIS POPULARES</h6>
+  <% livros.forEach(livros =>{ %>
+    <% if (livros.id <= 6) { %>
+      <div class="card" style="display: inline-block; width: 13rem; " >
+        <img src="<%= livros.img %>" style="height: 15rem;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 20px;"><%= livros.titulo %></h5>
+          <p class="card-text" ><%= livros.autor %></p>
+          <p class="card-text" style="font-weight: bold; font-size: 18px;">R$:<%= livros.valor%></p>
+          <a href="/livros/download/<%= livros.id %>" class="btn btn-secondary" >SAIBA MAIS</a>
+        </div>
+      </div>
+      <% } %>
+  <% }) %> 
+  <hr>
+  <br><br>
+  <h6 style="margin-left: 1%;">NOVIDADES QUE CHEGARAM PARA VOCÊ</h6>   
+  <% livros.forEach(livros =>{ %>
+    <% if (livros.id > 6 && livros.id <= 12 ) { %>
+      <div class="card" style="display: inline-block; width: 13rem; " >
+        <img src="<%= livros.img %>" style="height: 15rem;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 20px;"><%= livros.titulo %></h5>
+          <p class="card-text" ><%= livros.autor %></p>
+          <p class="card-text" style="font-weight: bold;">R$:<%= livros.valor%></p>
+          <a href="/livros/download/<%= livros.id %>" class="btn btn-secondary" >SAIBA MAIS</a>
+        </div>
+      </div>
+      <% } %>
+  <% }) %>
+  <hr>
+  <br><br>
+  <h6 style="margin-left: 1%;">DESTAQUES</h6>
+  <% livros.forEach(livros =>{ %>
+    <% if (livros.id > 12 && livros.id <= 18 ) { %>
+      <div class="card" style="display: inline-block; width: 13rem; " >
+        <img src="<%= livros.img %>" style="height: 15rem;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 20px;"><%= livros.titulo %></h5>
+          <p class="card-text" ><%= livros.autor %></p>
+          <p class="card-text" style="font-weight: bold;">R$:<%= livros.valor%></p>
+          <a href="/livros/download/<%= livros.id %>" class="btn btn-secondary" >SAIBA MAIS</a>
+        </div>
+      </div>
+      <% } %>
+  <% }) %>    
+</body>
+<%- include ('./partials/footer.ejs'); %>
